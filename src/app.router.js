@@ -21,7 +21,8 @@ const initApp = (app, express) => {
 
     //APP routing
 
-    app.get('/', (req, res) => res.send('Hello World!'))
+
+    app.get('/', (req, res) => res.status(200).send('welcome to our social media website...'))
     app.use("/auth", authRouter)
     app.use("/user", userRouter)
     app.use("/post", postRouter)
@@ -29,7 +30,7 @@ const initApp = (app, express) => {
 
 
     app.all("*", (req, res, next) => {
-        return res.json({ message: "In-valid method or URL or Both please check your routing" })
+        return res.status(200).json({ message: "In-valid method or URL or Both please check your routing" })
     })
 
     app.use(globalErrHandling)
