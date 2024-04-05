@@ -5,8 +5,9 @@ import { compare, hash } from "../../../utils/HashAndCompare.js";
 import sendEmail from "../../../utils/email.js";
 
 
-export const getAuthModule = (req, res, next) => {
-    return res.json({ message: "Auth module" })
+export const getAuthModule = async(req, res, next) => {
+    const users = await userModel.find({})
+    return res.json({ message: "Auth module"  , users})
 }
 
 export const signup = asyncHandler(async (req, res, next) => {
