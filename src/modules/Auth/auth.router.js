@@ -11,7 +11,9 @@ router.get("/" ,  authController.getAuthModule)
 router.get("/confirmEmail/:token" , authController.confirmEmail)
 router.get("/NewConfirmEmail/:token" , authController.NewConfirmEmail)
 
-router.post("/signup" ,validation(signupSchema),   authController.signup)
+router.post("/signup" ,
+// validation(signupSchema),  
+ authController.signup)
 router.post("/login" , validation(loginSchema),   authController.login)
 
 
